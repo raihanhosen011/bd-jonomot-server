@@ -15,10 +15,10 @@ const port = process.env.PORT || 8000
 mongoose
     .connect(process.env.MONGO_CONNNECTION_STRING, {
        useNewUrlParser: true,
-       useUnifiedTopology: true,  
+       useUnifiedTopology: true
     })
     .then(() => console.log("mongodb connected ..."))
-    .catch(() => console.log("mongodb not started :("))
+    .catch((e) => console.log(e))
 
 
 // request parser ...

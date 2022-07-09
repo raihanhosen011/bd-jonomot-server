@@ -22,12 +22,10 @@ mongoose
 
 
 // request parser ...
-app.use([
-  express.json(),
-  express.urlencoded({ extended: true }),
-  cookieParser(),
-  cors()
-])
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser())
+app.use(cors())
 
 // setup router
 fs.readdirSync(__dirname + '/router').map(route => app.use('/api/', require('./router/' + route)))

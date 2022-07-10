@@ -43,8 +43,8 @@ const newsSchema = new mongoose.Schema({
    },
 
    visitors : {
-      type : Number,
-      default : 0
+      type : Array,
+      default : []
    },
 
    tags : {

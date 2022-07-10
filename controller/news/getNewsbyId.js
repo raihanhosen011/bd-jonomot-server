@@ -3,13 +3,13 @@ const News = require("../../models/newsModel")
 
 async function getNewsById(req, res) {
   var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress 
-  console.log(ip)
 
   try {
     const news = await News.findOne({ _id : req.params.id }).populate('publisher', '-password')
     
-    news.visitors += 1
-    news.save()
+    const checkVisitor = await News.findOne({ visitors : ip })
+    
+    console.log('Hi' + checkVisitor)
 
     res.status(200).json({
       news : news

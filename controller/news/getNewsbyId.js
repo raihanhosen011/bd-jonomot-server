@@ -10,7 +10,7 @@ async function getNewsById(req, res) {
     const checkVisitor = await News.findOne({ visitors : ip })
     
     if(!checkVisitor){
-      await News({ visitors : [ip] }).save()
+      await News({ visitors : ip }).save()
     }
 
     res.status(200).json({

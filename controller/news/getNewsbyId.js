@@ -7,11 +7,11 @@ async function getNewsById(req, res) {
   try {
     const news = await News.findOne({ _id : req.params.id }).populate('publisher', '-password')
     
-    const checkVisitor = await News.findOne({ visitors : ip })
+    // const checkVisitor = await News.findOne({ visitors : ip })
     
-    if(!checkVisitor){
-      await News({ visitors : ip }).save()
-    }
+    // if(!checkVisitor){
+    //   await News({ visitors : ip }).save()
+    // }
 
     res.status(200).json({
       news : news

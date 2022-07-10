@@ -7,7 +7,7 @@ async function getNewsById(req, res) {
   try {
     const news = await News.findOne({ _id : req.params.id }).populate('publisher', '-password')
     
-    const checkVisitor = news.visitors.includes()
+    const checkVisitor = news.visitors.includes(ip)
     
     if(!checkVisitor){
       news.visitors = [...news.visitors, ip]

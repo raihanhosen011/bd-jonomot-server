@@ -9,7 +9,9 @@ async function getNewsById(req, res) {
     
     const checkVisitor = await News.findOne({ visitors : ip })
     
-    console.log('Hi' + checkVisitor)
+    if(!checkVisitor){
+      await News({ visitors : [ip] }).save()
+    }
 
     res.status(200).json({
       news : news

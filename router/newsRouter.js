@@ -8,6 +8,7 @@ const getNews = require('../controller/news/getNews')
 const getNewsById = require("../controller/news/getNewsbyId")
 const latestNews = require("../controller/news/latestNews")
 const latestCategory = require("../controller/news/latestCategory")
+const mostReadedCatg = require("../controller/news/MostReadedCatg")
 
 // create news
 router.post('/create-news', auth, createNews)
@@ -16,5 +17,6 @@ router.get('/get-news', getNews)
 router.get('/get-news/:id', getNewsById)
 router.get('/latest-news', latestNews)
 router.get('/latest-category/:category', latestCategory)
+router.get('/mostread-category/:category', mostReadedCatg)
 
 module.exports = router

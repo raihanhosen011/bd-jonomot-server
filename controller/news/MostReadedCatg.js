@@ -5,7 +5,7 @@ async function mostReadedCatg(req, res) {
   try {
 
     const news = await News.find({ category : req.params.category })
-    const newNews = news.length > 5 ? news.sort((a, b) => b.visitors - a.visitors).splice(0,5) : news.sort((a, b) => b.visitors - a.visitors)
+    const newNews = news.length > 5 ? news.sort((a, b) => b.visitors.length - a.visitors.length).splice(0,5) : news.sort((a, b) => b.visitors.length - a.visitors.length)
 
     res.status(200).json({
       news : newNews

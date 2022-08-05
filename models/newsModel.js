@@ -47,6 +47,16 @@ const newsSchema = new mongoose.Schema({
       default : []
    },
 
+   breaking : {
+      type : Boolean,
+      default : false
+   },
+
+   published : {
+      type : Boolean,
+      default : false
+   },
+
    tags : {
       type : Array,
       required : true,

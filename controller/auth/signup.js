@@ -14,7 +14,7 @@ const signup  = async (req, res) => {
       // checked if entered email is already used?
       const checkEmail = await User.findOne({ email })
       if(checkEmail){
-        return res.status(400).json({
+        return res.status(404).json({
           errors:{
             common : {
               msg : 'this email is already exist!'
@@ -33,12 +33,6 @@ const signup  = async (req, res) => {
         
         const accessToken = await createAcessToken({ id : user._id })  
         const refreshToken = await createRefreshToken({ id : user._id }) 
-
-        res.cookie("refresh_token", refreshToken, {
-          httpOnly: true,
-          path: 'http://localhost:3000/api/refresh_token',
-          maxAge: 30*24*60*60*1000 // 30days
-        })
 
         await user.save()
         

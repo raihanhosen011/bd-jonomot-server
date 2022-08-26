@@ -21,7 +21,7 @@ router.get('/latest-news', latestNews)
 router.get('/latest-category/:category', latestCategory)
 router.get('/mostread-category/:category', mostReadedCatg)
 
-router.patch('/update-news/:id', auth, updateNews)
+router.patch('/update-news/:id', updateNews)
 router.delete('/delete-news/:id', auth, deleteNews)
 
 module.exports = router

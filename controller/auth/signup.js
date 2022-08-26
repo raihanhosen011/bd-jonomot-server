@@ -14,11 +14,12 @@ const signup  = async (req, res) => {
       // checked if entered email is already used?
       const checkEmail = await User.findOne({ email })
       if(checkEmail){
-        return res.status(404).json({
+        return res.json({
           errors:{
             common : {
               msg : 'this email is already exist!'
             }
+
           }
         })
       }

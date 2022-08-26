@@ -11,11 +11,13 @@ const latestCategory = require("../controller/news/latestCategory")
 const mostReadedCatg = require("../controller/news/MostReadedCatg")
 const updateNews = require("../controller/news/updateNews")
 const deleteNews = require("../controller/news/deleteNews")
+const getAdminNews = require("../controller/news/getAdminNews")
 
 // create news
 router.post('/create-news', auth, createNews)
 
 router.get('/get-news', getNews)
+router.get('/get-admin-news', auth, getAdminNews)
 router.get('/get-news/:id', getNewsById)
 router.get('/latest-news', latestNews)
 router.get('/latest-category/:category', latestCategory)

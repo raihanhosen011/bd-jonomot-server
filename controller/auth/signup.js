@@ -8,7 +8,7 @@ const { createAcessToken, createRefreshToken } = require('../../libs/createToken
 const signup  = async (req, res) => {
     try {
       const { email, password } = req.body
-      
+
       const newPassword = password.replace(/ /g,'').toLowerCase()
 
       // checked if entered email is already used?

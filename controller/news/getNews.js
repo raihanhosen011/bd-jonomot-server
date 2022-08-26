@@ -3,7 +3,7 @@ const News = require("../../models/newsModel")
 
 async function getNews(req, res) {
   try {
-
+    
     const news = await News.find()
 
     res.status(200).json({

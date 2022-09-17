@@ -54,7 +54,7 @@ const newsSchema = new mongoose.Schema({
 
    published : {
       type : Boolean,
-      default : false
+      default : true
    },
 
    tags : {

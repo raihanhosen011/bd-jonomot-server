@@ -12,6 +12,7 @@ const mostReadedCatg = require("../controller/news/MostReadedCatg")
 const updateNews = require("../controller/news/updateNews")
 const deleteNews = require("../controller/news/deleteNews")
 const getAdminNews = require("../controller/news/getAdminNews")
+const updateStatus = require("../controller/news/updateStatus")
 
 // create news
 router.post('/create-news', auth, createNews)
@@ -24,6 +25,8 @@ router.get('/latest-category/:category', latestCategory)
 router.get('/mostread-category/:category', mostReadedCatg)
 
 router.patch('/update-news/:id', updateNews)
+router.patch('/update-status/:id', auth, updateStatus)
+
 router.delete('/delete-news/:id', auth, deleteNews)
 
 module.exports = router

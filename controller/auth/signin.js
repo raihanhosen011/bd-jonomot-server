@@ -39,15 +39,10 @@ const signin  = async (req, res) => {
         const accessToken = await createAcessToken({ id : checkEmail._id })  
         const refreshToken = await createRefreshToken({ id : checkEmail._id }) 
 
-        res.cookie("refresh_token", refreshToken, {
-          httpOnly: true,
-          path: 'http://localhost:3000/api/refresh_token',
-          maxAge: 30*24*60*60*1000 // 30days
-        })
-        
         res.json({
           msg : "successfully login",
           token : accessToken,
+          refreshToken,
           user : {
             ...checkEmail._doc,
             password : ""

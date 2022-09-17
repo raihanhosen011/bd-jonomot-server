@@ -4,7 +4,7 @@ const News = require("../../models/newsModel")
 async function latestCategory(req, res) {
   try {
 
-    const news = await News.find({ category : req.params.category })
+    const news = await News.find({ category : req.params.category, published : true })
     const newNews = news.length > 10 ? news.reverse().splice(0, 12) : news.reverse()
 
     res.status(200).json({

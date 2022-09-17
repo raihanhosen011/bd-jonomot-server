@@ -7,7 +7,7 @@ const { createAcessToken } = require("../../libs/createToken")
 
 const genarateToken = async (req, res) => {
     try {
-      const rf_token = req.cookies.refresh_token
+      const rf_token = req.body.rf_token
       if(!rf_token){
         return res.status(400).json({
           errors:{
